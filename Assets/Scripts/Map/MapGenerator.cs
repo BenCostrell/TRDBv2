@@ -11,7 +11,7 @@ public class MapGenerator
             for (int y = 0; y < height; y++)
             {
                 MapTile mapTile = new MapTile();
-                mapTile.Type = MapTile.TileType.Grass;
+                mapTile.Type = Random.value > 0.5f ? MapTile.TileType.Grass1 : MapTile.TileType.Grass2;
                 mapTiles[x, y] = mapTile;
             }
         }
