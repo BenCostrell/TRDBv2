@@ -12,7 +12,7 @@ public class UnitRendererManager : MonoBehaviour
         unitRendererPrefab = Resources.Load<UnitRenderer>("Prefabs/UnitRenderer");
     }
 
-    private void Start()
+    public void Setup()
     {
         Services.EventManager.Register<UnitPlacedOnMap>(OnUnitPlaced);
     }

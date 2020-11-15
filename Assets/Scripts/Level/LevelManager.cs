@@ -5,6 +5,7 @@ public class LevelManager : MonoBehaviour
 {
     private MapManager mapManager;
     private MapRenderer mapRenderer;
+    private UnitRendererManager unitRendererManager;
     private CameraController cameraController;
 
     // for now, constant map size
@@ -15,6 +16,7 @@ public class LevelManager : MonoBehaviour
     {
         mapRenderer = GetComponentInChildren<MapRenderer>();
         cameraController = GetComponentInChildren<CameraController>();
+        unitRendererManager = GetComponentInChildren<UnitRendererManager>();
         Services.EventManager = new EventManager();
     }
 
@@ -24,5 +26,6 @@ public class LevelManager : MonoBehaviour
         mapManager.CreateMap(width, height);
         mapRenderer.RenderMap(mapManager.MapTiles);
         cameraController.CenterCamera(width, height);
+        unitRendererManager.Setup();
     }
 }

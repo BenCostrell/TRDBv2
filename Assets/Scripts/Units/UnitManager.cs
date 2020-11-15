@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager
 {
     private List<Unit> units = new List<Unit>();
 
-    //public void SpawnUnit()
+    public Unit SpawnUnit(BaseUnitData unitData, List<UnitComponent> unitComponents)
+    {
+        Unit unit = new Unit(unitData, unitComponents);
+        units.Add(unit);
+        return unit;
+    }
+
+    public void DestroyUnit(Unit unit)
+    {
+        units.Remove(unit);
+    }
 }
