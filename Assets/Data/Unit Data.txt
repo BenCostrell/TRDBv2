@@ -1,0 +1,2 @@
+Name	Description	Size X	Size Y	Components
+Player	It's you!	1	1	

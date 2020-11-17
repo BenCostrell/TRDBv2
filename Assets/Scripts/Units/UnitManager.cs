@@ -6,9 +6,9 @@ public class UnitManager
 {
     private List<Unit> units = new List<Unit>();
 
-    public Unit SpawnUnit(BaseUnitData unitData, List<UnitComponent> unitComponents)
+    public Unit SpawnUnit(BaseUnitData unitData)
     {
-        Unit unit = new Unit(unitData, unitComponents);
+        Unit unit = new Unit(unitData);
         units.Add(unit);
         return unit;
     }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public void CenterCamera(int width, int height)
+    public void MoveCameraToCoord(Vector2Int coord)
     {
-        transform.localPosition = new Vector3(width / 2f, height / 2f, transform.localPosition.z);
+        transform.localPosition = new Vector3(coord.x, coord.y, transform.localPosition.z);
     }
 
     // Update is called once per frame

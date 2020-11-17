@@ -8,10 +8,10 @@ public class Unit
     public BaseUnitData baseUnitData { get; private set; }
     private List<UnitComponent> unitComponents;
 
-    public Unit(BaseUnitData baseUnitData, List<UnitComponent> unitComponents)
+    public Unit(BaseUnitData baseUnitData)
     {
         this.baseUnitData = baseUnitData;
-        this.unitComponents = unitComponents;
+        unitComponents = baseUnitData.GetUnitComponents();
     }
 
     public void PlaceOnMap(Vector2Int coordinate)
