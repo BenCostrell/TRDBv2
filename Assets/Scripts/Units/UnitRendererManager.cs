@@ -15,11 +15,30 @@ public class UnitRendererManager : MonoBehaviour
     public void Setup()
     {
         Services.EventManager.Register<UnitPlacedOnMap>(OnUnitPlaced);
+        Services.EventManager.Register<UnitRemovedFromMap>(OnUnitRemoved);
     }
 
     private void OnUnitPlaced(UnitPlacedOnMap e)
     {
         CreateUnitRenderer(e.unit);
+    }
+
+    private void OnUnitRemoved(UnitRemovedFromMap e)
+    {
+        UnitRenderer removedRenderer = null;
+        foreach(UnitRenderer unitRenderer in unitRenderers)
+        {
+            if(unitRenderer.unit == e.unit)
+            {
+                removedRenderer = unitRenderer;
+                break;
+            }
+        }
+        if(removedRenderer != null)
+        {
+            unitRenderers.Remove(removedRenderer);
+            removedRenderer.OnRemoval();
+        }
     }
 
     public void CreateUnitRenderer(Unit unit)

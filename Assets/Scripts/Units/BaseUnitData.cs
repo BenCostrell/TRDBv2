@@ -20,12 +20,12 @@ public class BaseUnitData
         UnitComponentFactories = unitComponentFactories;
     }
 
-    public List<UnitComponent> GetUnitComponents()
+    public List<UnitComponent> GetUnitComponents(Unit unit)
     {
         List<UnitComponent> unitComponents = new List<UnitComponent>();
         foreach(UnitComponentFactory unitComponentFactory in UnitComponentFactories)
         {
-            UnitComponent unitComponent = unitComponentFactory.GetUnitComponent();
+            UnitComponent unitComponent = unitComponentFactory.GetUnitComponent(unit);
             unitComponents.Add(unitComponent);
         }
         return unitComponents;

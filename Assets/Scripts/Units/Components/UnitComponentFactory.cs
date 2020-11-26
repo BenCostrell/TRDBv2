@@ -13,11 +13,14 @@ using System.Collections.Generic;
         this.componentParameterStrings = componentParameterStrings;
     }
 
-    public UnitComponent GetUnitComponent()
+    public UnitComponent GetUnitComponent(Unit unit)
     {
-        switch (componentName)
+        switch (componentName.Trim().ToUpper())
         {
-            // return the proper component with parameters plugged in
+            case "HITPOINTS":
+                int maxHP;
+                int.TryParse(componentParameterStrings[0], out maxHP);
+                return new HitPoints(unit, maxHP);
             default:
                 return null;
         }
